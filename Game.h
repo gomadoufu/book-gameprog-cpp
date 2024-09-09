@@ -1,13 +1,22 @@
+#ifndef GAME_H
+#define GAME_H
 #include "SDL/SDL.h"
 
 class Game {
-   public:
+    // SDLが作るウィンドウ
+    SDL_Window* mWindow;
+    // ゲームの続行を支持する
+    bool mIsRunning;
+    // 2D描画を行うためのレンダラ
+    SDL_Renderer* mRenderer;
+
+public:
     Game();
     // ゲームを初期化する
     auto Initialize() -> bool;
     auto RunLoop() -> void;
     // ゲームをシャットダウンする
-    auto Shutdown() -> void;
+    auto Shutdown() const -> void;
 
    private:
     // ゲームループのためのヘルパー関数群
@@ -15,8 +24,5 @@ class Game {
     auto UpdateGame() -> void;
     auto GenerateOutput() -> void;
 
-    // SDLが作るウィンドウ
-    SDL_Window* mWindow;
-    // ゲームの続行を支持する
-    bool mIsRunning;
 };
+#endif // GAME_H
