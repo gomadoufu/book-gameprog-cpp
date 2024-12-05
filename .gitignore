@@ -1,7 +1,0 @@
-*.db
-*.user
-*.opendb
-Debug/
-Release/
-.DS_Store
-External/FMOD
